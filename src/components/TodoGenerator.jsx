@@ -15,7 +15,6 @@ export default class TodoGenerator extends Component {
     }
 
     handleAddNewTodo = () => {
-        // create object: {id, text, done: bool}
         const newTodoItem = {
             id: uuidv4(),
             text: this.state.todoText,
