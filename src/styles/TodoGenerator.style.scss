@@ -1,0 +1,21 @@
+.todo-generator {
+    padding-top: 5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 40vw;
+    margin: auto;
+    input {
+        height: 3vh;
+    }
+    input[type=text] {
+        width: 85%;
+        padding: 0 3%;
+    }
+    input[type=button] {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

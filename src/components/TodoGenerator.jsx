@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
+import '../styles/TodoGenerator.style.scss';
+
 export default class TodoGenerator extends Component {
     constructor(props) {
         super(props);
@@ -27,7 +29,7 @@ export default class TodoGenerator extends Component {
     }
     render() {
         return (
-            <div>
+            <div className='todo-generator'>
                 <input type="text" name="todo" id="new-todo" className="todo-generator-input" value={this.state.todoText} placeholder='input a new todo here' onChange={this.handleTodoChange} />
                 <input type="button" value="add" onClick={this.handleAddNewTodo} />
             </div>

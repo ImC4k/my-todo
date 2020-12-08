@@ -1,4 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import classNames from 'classnames';
+
+import '../styles/TodoItem.style.scss';
 
 export default class TodoItem extends Component {
     deleteItem = () => {
@@ -17,16 +20,11 @@ export default class TodoItem extends Component {
     render() {
         const {text, done} = this.props.todo;
         return (
-            <div>
-                <span>
-                    <p>
-                        {done? 'should be crossed' : 'no cross'}
-                    </p>
-                    <p onClick={this.toggleDone}>
-                        {text}
-                    </p>
-                    <button onClick={this.deleteItem}>x</button>
-                </span>
+            <div className='todo-item'>
+                <p onClick={this.toggleDone} className={classNames({'done': done}, 'todo-text')}>
+                    {text}
+                </p>
+                <button onClick={this.deleteItem} className='delete-item-btn'>x</button>
             </div>
         )
     }
