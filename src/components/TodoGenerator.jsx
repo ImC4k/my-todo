@@ -30,7 +30,9 @@ export default class TodoGenerator extends Component {
     render() {
         return (
             <div className='todo-generator'>
-                <input type="text" name="todo" id="new-todo" className="todo-generator-input" value={this.state.todoText} placeholder='input a new todo here' onChange={this.handleTodoChange} />
+                <input type="text" name="todo" value={this.state.todoText} 
+                    placeholder='input a new todo here' onChange={this.handleTodoChange} 
+                />
                 <input type="button" value="add" onClick={this.handleAddNewTodo} />
             </div>
         )
