@@ -16,6 +16,12 @@ export default class TodoGenerator extends Component {
         });
     }
 
+    handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            this.handleAddNewTodo();
+        }
+    }
+
     handleAddNewTodo = () => {
         const newTodoItem = {
             id: uuidv4(),
@@ -31,7 +37,7 @@ export default class TodoGenerator extends Component {
         return (
             <div className='todo-generator'>
                 <input type="text" name="todo" value={this.state.todoText} 
-                    placeholder='input a new todo here' onChange={this.handleTodoChange} 
+                    placeholder='input a new todo here' onChange={this.handleTodoChange} onKeyDown={this.handleKeyDown}
                 />
                 <input type="button" value="add" onClick={this.handleAddNewTodo} />
             </div>
