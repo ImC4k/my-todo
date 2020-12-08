@@ -3,14 +3,16 @@ import React, { Component } from 'react'
 export default class TodoItem extends Component {
     deleteItem = () => {
         // todo redux delete item with uuid
-        console.log(`going to delete ${this.props.todo.id}`);
+        this.props.deleteTodo(this.props.todo.id);
     }
 
     toggleDone = () => {
         if (this.props.todo.done) {
-            console.log("now undone");
+            this.props.markTodoNotDone(this.props.todo.id);
         }
-        console.log("now done");
+        else {
+            this.props.markTodoDone(this.props.todo.id);
+        }
     }
 
     render() {

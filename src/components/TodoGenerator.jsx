@@ -20,8 +20,7 @@ export default class TodoGenerator extends Component {
             text: this.state.todoText,
             done: false,
         };
-        //todo use redux
-        console.log(`${JSON.stringify(newTodoItem, null, 4)}`);
+        this.props.createNewTodo(newTodoItem);
     }
     render() {
         return (
