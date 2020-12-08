@@ -10,7 +10,7 @@ export default class TodoGenerator extends Component {
     }
     handleTodoChange = (event) => {
         this.setState({
-            todo: event.target.value,
+            todoText: event.target.value,
         });
     }
 
@@ -18,7 +18,7 @@ export default class TodoGenerator extends Component {
         // create object: {id, text, done: bool}
         const newTodoItem = {
             id: uuidv4(),
-            text: this.state.todo,
+            text: this.state.todoText,
             done: false,
         };
         //todo use redux
@@ -27,7 +27,7 @@ export default class TodoGenerator extends Component {
     render() {
         return (
             <div>
-                <input type="text" name="todo" id="new-todo" className="todo-generator-input" value={this.state.todo} placeholder='input a new todo here' onChange={this.handleTodoChange} />
+                <input type="text" name="todo" id="new-todo" className="todo-generator-input" value={this.state.todoText} placeholder='input a new todo here' onChange={this.handleTodoChange} />
                 <input type="button" value="add" onClick={this.handleAddNewTodo} />
             </div>
         )

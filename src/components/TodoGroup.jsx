@@ -21,7 +21,7 @@ export default class TodoGroup extends Component {
             <div>
                 {
                     todoList.map(todoItem => 
-                        <TodoItem key={todoItem.id} data={todoItem} />
+                        <TodoItem key={todoItem.id} todo={todoItem} />
                     )
                 }
             </div>
