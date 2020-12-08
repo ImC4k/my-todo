@@ -5,7 +5,7 @@ export default class TodoGenerator extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            todo: '',
+            todoText: '',
         }
     }
     handleTodoChange = (event) => {
@@ -21,6 +21,9 @@ export default class TodoGenerator extends Component {
             done: false,
         };
         this.props.createNewTodo(newTodoItem);
+        this.setState({
+            todoText: ''
+        });
     }
     render() {
         return (
