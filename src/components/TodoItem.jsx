@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
 export default class TodoItem extends Component {
     deleteItem = () => {
-        // todo redux delete item with uuid
         this.props.deleteTodo(this.props.todo.id);
     }
 
