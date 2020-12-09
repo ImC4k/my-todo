@@ -1,9 +1,9 @@
 import {connect} from 'react-redux';
-import TodoGroup from '../components/TodoGroup';
+import DoneGroup from '../components/DoneGroup';
 
 const mapStateToProps = state => ({
     todoList: state.todoList.filter(todoItem => todoItem.done)
 });
 
-const DoneGroupContainer = connect(mapStateToProps)(TodoGroup);
+const DoneGroupContainer = connect(mapStateToProps)(DoneGroup);
 export default DoneGroupContainer;
