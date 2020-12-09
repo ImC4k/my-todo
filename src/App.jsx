@@ -4,6 +4,7 @@ import NotFound from './components/NotFound';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Home from './components/Home';
+import LabelListManagerContainer from './containers/LabelListManager.container';
 
 function App() {
   const routes = [
@@ -25,6 +26,12 @@ function App() {
       description: 'Done',
       element: <DoneGroupContainer />
     },
+    {
+      name: 'manage labels page',
+      path: '/manage-labels',
+      description: 'Manage Labels',
+      element: <LabelListManagerContainer />
+    }
   ];
   
   return (

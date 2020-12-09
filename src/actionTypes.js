@@ -8,3 +8,4 @@ export const CREATE_LABEL = 'CREATE_LABEL';
 export const ADD_LABEL = 'ADD_LABEL';
 export const REMOVE_LABEL = 'REMOVE_LABEL';
 export const SET_LABEL_LIST = 'SET_LABEL_LIST';
+export const DELETE_LABEL = 'DELETE_LABEL';

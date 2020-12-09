@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import { deleteTodo, updateTodo } from '../api/todoList.service';
 import '../styles/TodoItem.style.scss';
 import TodoItemLabelMenuContainer from '../containers/TodoItemLabelMenu.container';
+import { reverseContrast } from '../service/color.service';
 
 
 export default class TodoItem extends Component {
@@ -17,10 +18,10 @@ export default class TodoItem extends Component {
     }
 
     showNotification = () => {
-        const {text, done} = this.props.todo;
+        const { text, done } = this.props.todo;
         notification.open({
             message: 'Todo item status updated',
-            description: done? `${text} is marked as not done` : `${text} is marked as done`,
+            description: done ? `${text} is marked as not done` : `${text} is marked as done`,
             duration: 2
         });
     }
@@ -48,24 +49,11 @@ export default class TodoItem extends Component {
         this.props.setTargetTodoItemId(this.props.todo.id);
     }
 
-    reverseContrast = (colorInHex) => {
-        const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(colorInHex);
-        const colorInRgb = {
-            r: parseInt(result[1], 16),
-            g: parseInt(result[2], 16),
-            b: parseInt(result[3], 16)
-        };
-        const brightness = Math.round(((parseInt(colorInRgb.r) * 299) +
-                      (parseInt(colorInRgb.g) * 587) +
-                      (parseInt(colorInRgb.b) * 114)) / 1000);
-        return (brightness > 126) ? 'black' : 'white';
-    }
-
     render() {
         const { text, done, labels } = this.props.todo;
         return (
             <div onContextMenu={this.setTargetTodoItem}>
-                <Dropdown overlay={<TodoItemLabelMenuContainer />} trigger={['contextMenu']} onClick={() => {this.toggleDone(); this.setTargetTodoItem();}}>
+                <Dropdown overlay={<TodoItemLabelMenuContainer />} trigger={['contextMenu']} onClick={() => { this.toggleDone(); this.setTargetTodoItem(); }}>
                     <div className='todo-item'>
                         <p className={classNames({ 'done': done }, 'todo-text')}>
                             {text}
@@ -73,8 +61,8 @@ export default class TodoItem extends Component {
                         <div className="meta-content">
                             <div className='labels'>
                                 {
-                                    labels.map(label => 
-                                        <p className='label' key={label.id} style={{backgroundColor: label.color, color: this.reverseContrast(label.color)}}>
+                                    labels.map(label =>
+                                        <p className='label' key={label.id} style={{ backgroundColor: label.color, color: reverseContrast(label.color) }}>
                                             {label.text}
                                         </p>
                                     )

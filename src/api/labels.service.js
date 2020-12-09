@@ -8,3 +8,7 @@ export const getLabels = () => {
 export const createNewLabel = (label) => {
     return api.post(path, label);
 }
+
+export const deleteLabel = (id) => {
+    return api.delete(`${path}/${id}`);
+}

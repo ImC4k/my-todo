@@ -9,7 +9,9 @@ import {
     CREATE_LABEL,
     ADD_LABEL,
     REMOVE_LABEL,
-    SET_LABEL_LIST
+    SET_LABEL_LIST,
+    DELETE_LABEL,
+    DELETE_LABEL_FROM_TODO_LIST
 } from './actionTypes';
 
 const todoList = (state = [], action) => {
@@ -64,6 +66,9 @@ const labels = (state = [], action) => {
     }
     else if (action.type === SET_LABEL_LIST) {
         return action.payload;
+    }
+    else if (action.type === DELETE_LABEL) {
+        return state.filter(label => label.id !== action.payload.id);
     }
     return state;
 }

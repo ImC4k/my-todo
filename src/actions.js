@@ -8,7 +8,8 @@ import {
     CREATE_LABEL,
     ADD_LABEL,
     REMOVE_LABEL,
-    SET_LABEL_LIST
+    SET_LABEL_LIST,
+    DELETE_LABEL,
 } from './actionTypes';
 
 export const createNewTodo = (newTodo) => {
@@ -79,4 +80,11 @@ export const setLabelList = (labelList) => {
         type: SET_LABEL_LIST,
         payload: labelList
     }
+}
+
+export const deleteLabel = (label) => {
+    return {
+        type: DELETE_LABEL,
+        payload: label
+    };
 }

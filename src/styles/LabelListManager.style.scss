@@ -1,0 +1,20 @@
+.label-list-manager {
+    width: 40vw;
+    margin: auto;
+
+    .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .add-new-label-btn {
+            width: 30%;
+        }
+    }
+
+    .labels {
+        height: 80vh;
+    }
+
+}
