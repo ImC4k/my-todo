@@ -1,15 +1,15 @@
 import TodoList from './components/TodoList';
 import './App.css';
-import DoneListContainer from './containers/DoneList.container';
+import DoneGroupContainer from './containers/DoneGroup.container';
 import NotFound from './components/NotFound';
-import { BrowserRouter, Link, NavLink, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 
 function App() {
   const routes = [
     {
       name: 'root page',
       path: '/',
-      description: 'empty',
+      description: 'home',
       element: (<div />)
     },
     {
@@ -22,7 +22,7 @@ function App() {
       name: 'done page',
       path: '/done',
       description: 'go to done page',
-      element: (<DoneListContainer />)
+      element: (<DoneGroupContainer />)
     },
   ];
   return (
@@ -54,7 +54,7 @@ function App() {
             <TodoList />
           </Route>
           <Route path='/done' >
-            <DoneListContainer />
+            <DoneGroupContainer />
           </Route>
           <Route path='*' >
             <NotFound />
