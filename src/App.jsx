@@ -1,6 +1,7 @@
 import TodoList from './components/TodoList';
 import './App.css';
 import DoneListContainer from './containers/DoneList.container';
+import NotFound from './components/NotFound';
 import { BrowserRouter, Link, NavLink, Route, Switch } from 'react-router-dom';
 
 function App() {
@@ -46,11 +47,17 @@ function App() {
               </Route>
             )
           } */}
+          <Route path='/' exact>
+            <div />
+          </Route>
           <Route path='/todo' >
             <TodoList />
           </Route>
           <Route path='/done' >
             <DoneListContainer />
+          </Route>
+          <Route path='*' >
+            <NotFound />
           </Route>
         </Switch>
         
