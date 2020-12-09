@@ -9,15 +9,25 @@ import { reverseContrast } from '../service/color.service';
 
 
 export default class TodoItem extends Component {
+    showDeletedItemNotification = () => {
+        const { text } = this.props.todo;
+        notification.open({
+            message: 'Todo item is deleted',
+            description: `Todo item: ${text} has been deleted`,
+            duration: 3
+        });
+    }
+
     deleteItem = (event) => {
         deleteTodo(this.props.todo.id)
             .then(_ => {
+                this.showDeletedItemNotification();
                 this.props.deleteTodo(this.props.todo.id);
             });
         event.stopPropagation();
     }
 
-    showNotification = () => {
+    showUpdateDoneStatusNotification = () => {
         const { text, done } = this.props.todo;
         notification.open({
             message: 'Todo item status updated',
@@ -34,7 +44,7 @@ export default class TodoItem extends Component {
         };
 
         this.props.updateTodoItem(updatedTodoItem);
-        this.showNotification();
+        this.showUpdateDoneStatusNotification();
 
         updateTodo(updatedTodoItem)
             .catch(error => {
@@ -61,11 +71,14 @@ export default class TodoItem extends Component {
                         <div className="meta-content">
                             <div className='labels'>
                                 {
-                                    labels.map(label =>
+                                    labels.slice(0, 4).map(label =>
                                         <p className='label' key={label.id} style={{ backgroundColor: label.color, color: reverseContrast(label.color) }}>
                                             {label.text}
                                         </p>
                                     )
+                                }
+                                {
+                                    labels.length > 4 && '...'
                                 }
                             </div>
                             <DeleteOutlined onClick={this.deleteItem} className='delete-item-btn'>x</DeleteOutlined>

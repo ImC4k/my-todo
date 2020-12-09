@@ -19,6 +19,7 @@
     }
 
     .todo-text {
+        flex: 1;
         margin: 2% 0;
         width: 100%;
         text-align: left;
@@ -30,6 +31,7 @@
     }
 
     .meta-content {
+        flex: 1;
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
@@ -59,11 +61,16 @@
             flex-direction: row;
             text-align: right;
             padding-right: 0.5vw;
+            flex-wrap: wrap;
 
             .label {
                 padding: 0 0.5vw;
                 margin: 0 0.2vw;
                 border-radius: 10px;
+
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
         }
     }
