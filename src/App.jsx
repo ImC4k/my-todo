@@ -1,8 +1,8 @@
 import TodoList from './components/TodoList';
-import './App.css';
 import DoneGroupContainer from './containers/DoneGroup.container';
 import NotFound from './components/NotFound';
-import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Navigation from './components/Navigation';
 
 function App() {
   const routes = [
@@ -34,17 +34,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <ul>
-          {
-            routes.map(route => 
-              <li key={route.name}>
-                <Link to={route.path}>
-                  {route.description}
-                </Link>
-              </li>
-            )
-          }
-        </ul>
+        <Navigation routes={routes} />
         <Switch>
           {
             routes.map(route => 

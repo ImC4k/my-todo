@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { createNewTodo } from '../api/todoList.service';
 
+import { Button } from 'antd';
 import '../styles/TodoGenerator.style.scss';
 
 export default class TodoGenerator extends Component {
@@ -39,7 +40,7 @@ export default class TodoGenerator extends Component {
                 <input type="text" name="todo" value={this.state.todoText}
                     placeholder='input a new todo here' onChange={this.handleTodoChange} onKeyDown={this.handleKeyDown}
                 />
-                <input type="button" value="add" onClick={this.handleAddNewTodo} />
+                <Button onClick={this.handleAddNewTodo} type="primary">add</Button>
             </div>
         )
     }
