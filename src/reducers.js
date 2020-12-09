@@ -4,7 +4,8 @@ import {
     UPDATE_TODO_ITEM,
     DELETE_TODO,
     SET_TODO_LIST,
-    SET_LABEL_ADDER_VISIBILITY
+    SET_LABEL_ADDER_VISIBILITY,
+    SET_TARGET_TODO_ITEM
 } from './actionTypes';
 
 const todoList = (state = [], action) => {
@@ -35,7 +36,16 @@ const labelAdderVisibility = (state = false, action) => {
     return state;
 }
 
+const targetTodoItem = (state = {}, action) => {
+    if (action.type === SET_TARGET_TODO_ITEM) {
+        console.log(`targeting todo item: ${JSON.stringify(action.payload)}`);
+        return action.payload;
+    }
+    return state;
+}
+
 export default combineReducers({
     todoList,
-    labelAdderVisibility
+    labelAdderVisibility,
+    targetTodoItem
 });

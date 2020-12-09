@@ -24,6 +24,7 @@ export default class LabelAdder extends Component {
             color: "#FFFFFF",
         }
         this.props.createNewLabel(newLabel);
+        // this.props.
     }
     
     handleClose = () => {

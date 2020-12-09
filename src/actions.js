@@ -3,7 +3,8 @@ import {
     DELETE_TODO,
     UPDATE_TODO_ITEM,
     SET_TODO_LIST,
-    SET_LABEL_ADDER_VISIBILITY 
+    SET_LABEL_ADDER_VISIBILITY,
+    SET_TARGET_TODO_ITEM 
 } from './actionTypes';
 
 export const createNewTodo = (newTodo) => {
@@ -39,4 +40,11 @@ export const setLabelAdderVisibility = (state) => {
         type: SET_LABEL_ADDER_VISIBILITY,
         payload: state
     }
+}
+
+export const setTargetTodoItem = (todoItem) => {
+    return {
+        type: SET_TARGET_TODO_ITEM,
+        payload: todoItem
+    };
 }

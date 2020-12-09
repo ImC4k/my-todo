@@ -32,17 +32,23 @@ export default class TodoItem extends Component {
             })
     }
 
+    setTargetTodoItem = () => {
+        this.props.setTargetTodoItem(this.props.todo);
+    }
+
     render() {
         const { text, done } = this.props.todo;
         return (
-            <Dropdown overlay={<TodoItemLabelMenuContainer />} trigger={['contextMenu']} >
-                <div className='todo-item'>
-                    <p onClick={this.toggleDone} className={classNames({ 'done': done }, 'todo-text')}>
-                        {text}
-                    </p>
-                    <DeleteOutlined onClick={this.deleteItem} className='delete-item-btn'>x</DeleteOutlined>
-                </div>
-            </Dropdown>
+            <div onContextMenu={this.setTargetTodoItem} onClick={this.setTargetTodoItem}>
+                <Dropdown overlay={<TodoItemLabelMenuContainer />} trigger={['contextMenu']}>
+                    <div className='todo-item'>
+                        <p onClick={this.toggleDone} className={classNames({ 'done': done }, 'todo-text')}>
+                            {text}
+                        </p>
+                        <DeleteOutlined onClick={this.deleteItem} className='delete-item-btn'>x</DeleteOutlined>
+                    </div>
+                </Dropdown>
+            </div>
         )
     }
 }

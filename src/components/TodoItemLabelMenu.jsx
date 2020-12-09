@@ -26,7 +26,6 @@ export default class TodoItemLabelMenu extends Component {
     handleAddNewLabel = () => {
         // todo popup to allow user input
         this.props.setLabelAdderVisibility(true);
-        console.log('set open');
     }
 
     handleLabelClick = (label) => {
