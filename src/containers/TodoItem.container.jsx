@@ -1,10 +1,9 @@
 import {connect} from 'react-redux';
-import {markTodoDone, markTodoNotDone, deleteTodo} from '../actions';
+import {toggleTodoDone, deleteTodo} from '../actions';
 import TodoItem from '../components/TodoItem';
 
 const mapDispatchToProps = dispatch => ({
-    markTodoDone: (uuid) => dispatch(markTodoDone(uuid)),
-    markTodoNotDone: (uuid) => dispatch(markTodoNotDone(uuid)),
+    toggleTodoDone: (uuid) => dispatch(toggleTodoDone(uuid)),
     deleteTodo: (uuid) => dispatch(deleteTodo(uuid))
 });
 

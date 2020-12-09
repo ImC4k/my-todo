@@ -9,12 +9,7 @@ export default class TodoItem extends Component {
     }
 
     toggleDone = () => {
-        if (this.props.todo.done) {
-            this.props.markTodoNotDone(this.props.todo.id);
-        }
-        else {
-            this.props.markTodoDone(this.props.todo.id);
-        }
+        this.props.toggleTodoDone(this.props.todo.id);
     }
 
     render() {

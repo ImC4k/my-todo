@@ -11,8 +11,8 @@ const todoList = (state = [], action) => {
     }
     else if (action.type === TOGGLE_TODO_STATUS) {
         return state.map(todoItem => {
-            if (todoItem.id === action.payload.id) {
-                return { ...todoItem, done: action.payload.done };
+            if (todoItem.id === action.payload) {
+                return { ...todoItem, done: !todoItem.done };
             }
             return { ...todoItem };
         });

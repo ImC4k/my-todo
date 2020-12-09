@@ -11,23 +11,10 @@ export const createNewTodo = (newTodo) => {
     };
 }
 
-export const markTodoDone = (uuid) => {
+export const toggleTodoDone = (uuid) => {
     return {
         type: TOGGLE_TODO_STATUS,
-        payload: {
-            id: uuid,
-            done: true,
-        }
-    };
-}
-
-export const markTodoNotDone = (uuid) => {
-    return {
-        type: TOGGLE_TODO_STATUS,
-        payload: {
-            id: uuid,
-            done: false,
-        }
+        payload: uuid
     };
 }
 
