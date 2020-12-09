@@ -1,9 +1,10 @@
 import api from './api';
+const path = '/todos';
 
-const getTodoList = () => {
-    return api.get('/todos');
+export const getTodoList = () => {
+    return api.get(path);
 }
 
-export {
-    getTodoList
-};
+export const createNewTodo = (todoText) => {
+    return api.post(path, {text: todoText});
+}
