@@ -32,6 +32,7 @@ export default class Home extends Component {
                     <Button onClick={()=>this.refs.myCarousel.prev()} >previous image</Button>
                     <Button onClick={()=>this.refs.myCarousel.next()} >next image</Button>
                 </div>
+                <Image src='https://media.giphy.com/media/111ebonMs90YLu/giphy.gif' alt='thumbs up!'/>
             </div>
         )
     }
