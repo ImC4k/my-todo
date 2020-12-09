@@ -52,9 +52,12 @@
     }
 
     .labels {
+        display: flex;
+        flex-direction: row;
+
         .label {
             padding: 0 0.5vw;
-            margin: 0
+            margin: 0 0.2vw;
         }
     }
 }
