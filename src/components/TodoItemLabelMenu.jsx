@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Menu } from 'antd';
 import { updateTodo } from '../api/todoList.service';
 
-import { PlusCircleOutlined } from '@ant-design/icons'
+import { PlusCircleOutlined, CheckCircleOutlined } from '@ant-design/icons'
 
 export default class TodoItemLabelMenu extends Component {
     handleAddNewLabel = () => {
@@ -30,13 +30,14 @@ export default class TodoItemLabelMenu extends Component {
 
     render() {
         const { labels } = this.props;
+        const selectedLabelIds = this.getTodoItemInRedux().labels.map(label => label.id);
         return (
             <Menu>
                 <Menu.Item key="add" onClick={this.handleAddNewLabel}>new label <PlusCircleOutlined /></Menu.Item>
                 {
                     labels.map(label =>
                         <Menu.Item key={label.id} onClick={() => this.handleLabelClick(label)}>
-                            {label.text}
+                            {label.text} {selectedLabelIds.includes(label.id) && <CheckCircleOutlined />}
                         </Menu.Item>
                     )
                 }
