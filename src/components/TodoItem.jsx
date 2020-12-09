@@ -37,13 +37,13 @@ export default class TodoItem extends Component {
     }
 
     render() {
-        const { text, done } = this.props.todo;
+        const { text, done, labels } = this.props.todo;
         return (
             <div onContextMenu={this.setTargetTodoItem} onClick={this.setTargetTodoItem}>
                 <Dropdown overlay={<TodoItemLabelMenuContainer />} trigger={['contextMenu']}>
                     <div className='todo-item'>
                         <p onClick={this.toggleDone} className={classNames({ 'done': done }, 'todo-text')}>
-                            {text}
+                            {text} labels: {labels.map(label=>label.text).join(', ')}
                         </p>
                         <DeleteOutlined onClick={this.deleteItem} className='delete-item-btn'>x</DeleteOutlined>
                     </div>

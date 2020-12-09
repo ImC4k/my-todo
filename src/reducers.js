@@ -5,7 +5,8 @@ import {
     DELETE_TODO,
     SET_TODO_LIST,
     SET_LABEL_ADDER_VISIBILITY,
-    SET_TARGET_TODO_ITEM
+    SET_TARGET_TODO_ITEM,
+    ADD_LABEL
 } from './actionTypes';
 
 const todoList = (state = [], action) => {
@@ -25,6 +26,15 @@ const todoList = (state = [], action) => {
     }
     else if (action.type === SET_TODO_LIST) {
         return action.payload;
+    }
+    else if (action.type === ADD_LABEL) {
+        return state.map(todoItem => {
+            if (todoItem.id === action.payload.todoItem.id) {
+                const newLabelList = [...todoItem.labels, action.payload.label];
+                return { ...todoItem, labels: newLabelList };
+            }
+            return { ...todoItem };
+        });
     }
     return state;
 };
