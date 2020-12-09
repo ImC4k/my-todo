@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import { deleteTodo, updateTodo } from '../api/todoList.service';
 
+import { DeleteOutlined } from '@ant-design/icons';
 import '../styles/TodoItem.style.scss';
 
 export default class TodoItem extends Component {
@@ -36,7 +37,7 @@ export default class TodoItem extends Component {
                 <p onClick={this.toggleDone} className={classNames({ 'done': done }, 'todo-text')}>
                     {text}
                 </p>
-                <button onClick={this.deleteItem} className='delete-item-btn'>x</button>
+                <DeleteOutlined onClick={this.deleteItem} className='delete-item-btn'>x</DeleteOutlined>
             </div>
         )
     }
