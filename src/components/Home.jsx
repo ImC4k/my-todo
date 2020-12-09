@@ -20,11 +20,11 @@ export default class Home extends Component {
         return (
             <div className='home'>
                 <h1 className='header'>Home</h1>
-                <p>this is the homepage of my todo app hahahahahaha</p>
+                <p>{`here are some nice pictures before your work today :)`}</p>
                 <Carousel autoplay ref='myCarousel'>
                     {
                         this.state.pictures.map(picture => 
-                            <Image key={picture} src={picture} />
+                            <Image key={picture} src={picture} alt='this is a nice picrue, trust me'/>
                         )
                     }
                 </Carousel>

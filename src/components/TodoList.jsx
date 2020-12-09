@@ -8,7 +8,9 @@ class TodoList extends Component {
         return (
             <div>
                 <h1 className='header'>TodoList</h1>
-                <TodoGroupContainer />
+                <div className='todo-items-container'>
+                    <TodoGroupContainer />
+                </div>
                 <TodoGeneratorContainer />
             </div>
         );
