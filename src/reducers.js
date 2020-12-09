@@ -18,13 +18,7 @@ const todoList = (state = [], action) => {
         });
     }
     else if (action.type === DELETE_TODO) {
-        const listWithTodoItemRemoved = [];
-        state.forEach(todoItem => {
-            if (todoItem.id !== action.payload) {
-                listWithTodoItemRemoved.push({...todoItem});
-            }
-        });
-        return listWithTodoItemRemoved;
+        return state.filter(todoItem => todoItem.id !== action.payload);
     }
     return state;
 };
