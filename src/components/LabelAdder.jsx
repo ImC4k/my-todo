@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {Input, Modal} from 'antd';
-import {CirclePicker} from 'react-color'
-import {v4 as uuidv4} from 'uuid';
+import { Input, Modal } from 'antd';
+import { CirclePicker } from 'react-color'
+import { createNewLabel } from '../api/labels.service';
 
 import '../styles/LabelAdder.style.scss';
 
@@ -21,17 +21,19 @@ export default class LabelAdder extends Component {
     }
 
     handleOk = () => {
-        const {newLabel, color} = this.state;
+        const { newLabel, color } = this.state;
         const newLabelItem = {
-            id: uuidv4(),
             text: newLabel,
             color: color,
         }
-        this.props.createNewLabel(newLabelItem);
-        this.props.addLabel(this.props.targetTodoItemId, newLabelItem);
-        this.handleClose();
+        createNewLabel(newLabelItem)
+        .then(({data}) => {
+            this.props.createNewLabel(data);
+            this.props.addLabel(this.props.targetTodoItemId, data);
+            this.handleClose();
+        })
     }
-    
+
     handleClose = () => {
         this.setState({
             newLabel: '',
@@ -41,14 +43,14 @@ export default class LabelAdder extends Component {
     }
 
     handleColorChange = (color, event) => {
-        this.setState( {
+        this.setState({
             color: color.hex
         });
         console.log(`new color: ${color.hex}`);
     }
-    
+
     render() {
-        const {labelAdderVisibility} = this.props;
+        const { labelAdderVisibility } = this.props;
         return (
             <Modal
                 title="Add a new label"
@@ -57,10 +59,10 @@ export default class LabelAdder extends Component {
                 onOk={this.handleOk}
                 okText='Add'
             >
-                <Input value={this.state.newLabel} placeholder='add new label' onChange={this.handleInput} onPressEnter={this.handleOk}/>
+                <Input value={this.state.newLabel} placeholder='add new label' onChange={this.handleInput} onPressEnter={this.handleOk} />
                 <div className="color-picker">
                     <p>Color for this label:</p>
-                    <CirclePicker onChangeComplete={this.handleColorChange}/>
+                    <CirclePicker onChangeComplete={this.handleColorChange} />
                 </div>
             </Modal>
         )
