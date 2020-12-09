@@ -4,7 +4,7 @@ import {setLabelAdderVisibility, createLabel, addLabel} from '../actions';
 
 const mapStateToProps = state => ({
     labelAdderVisibility: state.labelAdderVisibility,
-    targetTodoItem: state.targetTodoItem
+    targetTodoItemId: state.targetTodoItemId
 });
 
 const mapDispatchToProps = dispatch => ({
