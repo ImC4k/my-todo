@@ -10,7 +10,12 @@ function App() {
       name: 'root page',
       path: '/',
       description: 'home',
-      element: <div />
+      element: 
+      (<div>
+        <h1>
+          Home
+        </h1>
+      </div>)
     },
     {
       name: 'list page',
