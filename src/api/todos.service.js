@@ -8,3 +8,7 @@ export const getTodoList = () => {
 export const createNewTodo = (todoText) => {
     return api.post(path, {text: todoText});
 }
+
+export const deleteTodo = (id) => {
+    return api.delete(`${path}/${id}`);
+}
