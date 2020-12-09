@@ -10,7 +10,8 @@ export default class LabelAdder extends Component {
         super(props);
         this.state = {
             newLabel: '',
-            color: '#FFFFFF'
+            color: '#FFFFFF',
+            submitButtonEnabled: true
         };
     }
 
@@ -26,10 +27,17 @@ export default class LabelAdder extends Component {
             text: newLabel,
             color: color,
         }
+        this.setState({
+            submitButtonEnabled: false,
+        });
+
         createNewLabel(newLabelItem)
         .then(({data}) => {
             this.props.createNewLabel(data);
             this.props.addLabel(this.props.targetTodoItemId, data);
+            this.setState({
+                submitButtonEnabled: true,
+            });
             this.handleClose();
         })
     }
