@@ -33,7 +33,7 @@ export default class TodoItem extends Component {
     }
 
     setTargetTodoItem = () => {
-        this.props.setTargetTodoItem(this.props.todo);
+        this.props.setTargetTodoItemId(this.props.todo.id);
     }
 
     render() {

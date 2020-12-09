@@ -5,9 +5,10 @@ import {
     DELETE_TODO,
     SET_TODO_LIST,
     SET_LABEL_ADDER_VISIBILITY,
-    SET_TARGET_TODO_ITEM,
+    SET_TARGET_TODO_ITEM_ID,
     CREATE_LABEL,
     ADD_LABEL,
+    REMOVE_LABEL,
     SET_LABEL_LIST
 } from './actionTypes';
 
@@ -31,8 +32,17 @@ const todoList = (state = [], action) => {
     }
     else if (action.type === ADD_LABEL) {
         return state.map(todoItem => {
-            if (todoItem.id === action.payload.todoItem.id) {
+            if (todoItem.id === action.payload.todoItemId) {
                 const newLabelList = [...todoItem.labels, action.payload.label];
+                return { ...todoItem, labels: newLabelList };
+            }
+            return { ...todoItem };
+        });
+    }
+    else if (action.type === REMOVE_LABEL) {
+        return state.map(todoItem => {
+            if (todoItem.id === action.payload.todoItemId) {
+                const newLabelList = todoItem.labels.filter(label => label.id !== action.payload.label.id);
                 return { ...todoItem, labels: newLabelList };
             }
             return { ...todoItem };
@@ -58,9 +68,8 @@ const labels = (state = [], action) => {
     return state;
 }
 
-const targetTodoItem = (state = {}, action) => {
-    if (action.type === SET_TARGET_TODO_ITEM) {
-        console.log(`targeting todo item: ${JSON.stringify(action.payload)}`);
+const targetTodoItemId = (state = '', action) => {
+    if (action.type === SET_TARGET_TODO_ITEM_ID) {
         return action.payload;
     }
     return state;
@@ -70,5 +79,5 @@ export default combineReducers({
     todoList,
     labelAdderVisibility,
     labels,
-    targetTodoItem
+    targetTodoItemId
 });

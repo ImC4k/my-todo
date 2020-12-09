@@ -4,9 +4,10 @@ import {
     UPDATE_TODO_ITEM,
     SET_TODO_LIST,
     SET_LABEL_ADDER_VISIBILITY,
-    SET_TARGET_TODO_ITEM,
+    SET_TARGET_TODO_ITEM_ID,
     CREATE_LABEL,
     ADD_LABEL,
+    REMOVE_LABEL,
     SET_LABEL_LIST
 } from './actionTypes';
 
@@ -45,9 +46,9 @@ export const setLabelAdderVisibility = (state) => {
     }
 }
 
-export const setTargetTodoItem = (todoItem) => {
+export const setTargetTodoItemId = (todoItem) => {
     return {
-        type: SET_TARGET_TODO_ITEM,
+        type: SET_TARGET_TODO_ITEM_ID,
         payload: todoItem
     };
 }
@@ -59,10 +60,17 @@ export const createLabel = (label) => {
     };
 }
 
-export const addLabel = (todoItem, label) => {
+export const addLabel = (todoItemId, label) => {
     return {
         type: ADD_LABEL,
-        payload: { todoItem, label }
+        payload: { todoItemId, label }
+    }
+}
+
+export const removeLabel = (todoItemId, label) => {
+    return {
+        type: REMOVE_LABEL,
+        payload: { todoItemId, label }
     }
 }
 

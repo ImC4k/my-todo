@@ -8,8 +8,19 @@ export default class TodoItemLabelMenu extends Component {
         this.props.setLabelAdderVisibility(true);
     }
 
-    handleLabelClick = (label) => {
-        this.props.addLabel(this.props.targetTodoItem, label);
+    getTodoItemInRedux = () => {
+        const {targetTodoItemId: targetId, todoList} = this.props;
+        return todoList.filter(todoItem => todoItem.id === targetId)[0];
+    }
+
+    handleLabelClick = (selectedLabel) => {
+        const targetTodoItem = this.getTodoItemInRedux();
+        if (targetTodoItem.labels.map(labelInTodoItem=>labelInTodoItem.id).includes(selectedLabel.id)) {
+            this.props.removeLabel(targetTodoItem.id, selectedLabel);
+        }
+        else {
+            this.props.addLabel(targetTodoItem.id, selectedLabel);
+        }
     }
 
     render() {
