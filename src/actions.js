@@ -1,7 +1,7 @@
 import { 
     CREATE_NEW_TODO, 
     DELETE_TODO,
-    TOGGLE_TODO_STATUS,
+    UPDATE_TODO_ITEM,
     SET_TODO_LIST 
 } from './actionTypes';
 
@@ -12,10 +12,10 @@ export const createNewTodo = (newTodo) => {
     };
 }
 
-export const toggleTodoDone = (uuid) => {
+export const updateTodoItem = (updatedTodoItem) => {
     return {
-        type: TOGGLE_TODO_STATUS,
-        payload: uuid
+        type: UPDATE_TODO_ITEM,
+        payload: updatedTodoItem
     };
 }
 

@@ -1,4 +1,4 @@
 export const CREATE_NEW_TODO = 'CREATE_NEW_TODO';
 export const DELETE_TODO = 'DELETE_TODO';
-export const TOGGLE_TODO_STATUS = 'TOGGLE_TODO_STATUS';
+export const UPDATE_TODO_ITEM = 'UPDATE_TODO_ITEM';
 export const SET_TODO_LIST = 'SET_TODO_LIST';

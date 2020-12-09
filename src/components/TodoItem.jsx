@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import { deleteTodo } from '../api/todos.service';
+import { deleteTodo, updateTodo } from '../api/todos.service';
 
 import '../styles/TodoItem.style.scss';
 
@@ -13,7 +13,15 @@ export default class TodoItem extends Component {
     }
 
     toggleDone = () => {
-        this.props.toggleTodoDone(this.props.todo.id);
+        const {todo: currentTodo} = this.props;
+        const updatedTodoItem = {
+            ...currentTodo,
+            done: !currentTodo.done
+        };
+        updateTodo(updatedTodoItem)
+        .then(({data: responseTodoItem}) => {
+            this.props.updateTodoItem(responseTodoItem);
+        })
     }
 
     render() {

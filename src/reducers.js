@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import {
     CREATE_NEW_TODO,
-    TOGGLE_TODO_STATUS,
+    UPDATE_TODO_ITEM,
     DELETE_TODO,
     SET_TODO_LIST
 } from './actionTypes';
@@ -10,10 +10,10 @@ const todoList = (state = [], action) => {
     if (action.type === CREATE_NEW_TODO) {
         return [...state, action.payload];
     }
-    else if (action.type === TOGGLE_TODO_STATUS) {
+    else if (action.type === UPDATE_TODO_ITEM) {
         return state.map(todoItem => {
-            if (todoItem.id === action.payload) {
-                return { ...todoItem, done: !todoItem.done };
+            if (todoItem.id === action.payload.id) {
+                return { ...action.payload };
             }
             return { ...todoItem };
         });

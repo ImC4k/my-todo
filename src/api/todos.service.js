@@ -12,3 +12,7 @@ export const createNewTodo = (todoText) => {
 export const deleteTodo = (id) => {
     return api.delete(`${path}/${id}`);
 }
+
+export const updateTodo = (updatedTodoItem) => {
+    return api.put(`${path}/${updatedTodoItem.id}`, updatedTodoItem);
+}
