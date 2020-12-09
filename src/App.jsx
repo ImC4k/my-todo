@@ -3,30 +3,26 @@ import DoneGroupContainer from './containers/DoneGroup.container';
 import NotFound from './components/NotFound';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Navigation from './components/Navigation';
+import Home from './components/Home';
 
 function App() {
   const routes = [
     {
       name: 'root page',
       path: '/',
-      description: 'home',
-      element: 
-      (<div>
-        <h1>
-          Home
-        </h1>
-      </div>)
+      description: 'Home',
+      element: <Home />
     },
     {
       name: 'list page',
       path: '/todo',
-      description: 'go to list page',
+      description: 'Todos',
       element: <TodoList />
     },
     {
       name: 'done page',
       path: '/done',
-      description: 'go to done page',
+      description: 'Done',
       element: <DoneGroupContainer />
     },
   ];
