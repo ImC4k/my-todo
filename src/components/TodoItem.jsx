@@ -18,9 +18,14 @@ export default class TodoItem extends Component {
             ...currentTodo,
             done: !currentTodo.done
         };
+
+        this.props.updateTodoItem(updatedTodoItem);
+        
         updateTodo(updatedTodoItem)
-        .then(({data: responseTodoItem}) => {
-            this.props.updateTodoItem(responseTodoItem);
+        .catch(error => {
+            console.error(error);
+            // undo update
+            this.props.updateTodoItem(currentTodo);
         })
     }
 
