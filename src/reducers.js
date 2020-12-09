@@ -7,7 +7,8 @@ import {
     SET_LABEL_ADDER_VISIBILITY,
     SET_TARGET_TODO_ITEM,
     CREATE_LABEL,
-    ADD_LABEL
+    ADD_LABEL,
+    SET_LABEL_LIST
 } from './actionTypes';
 
 const todoList = (state = [], action) => {
@@ -50,6 +51,9 @@ const labelAdderVisibility = (state = false, action) => {
 const labels = (state = [], action) => {
     if (action.type === CREATE_LABEL) {
         return [...state, action.payload];
+    }
+    else if (action.type === SET_LABEL_LIST) {
+        return action.payload;
     }
     return state;
 }

@@ -6,7 +6,8 @@ import {
     SET_LABEL_ADDER_VISIBILITY,
     SET_TARGET_TODO_ITEM,
     CREATE_LABEL,
-    ADD_LABEL 
+    ADD_LABEL,
+    SET_LABEL_LIST
 } from './actionTypes';
 
 export const createNewTodo = (newTodo) => {
@@ -62,5 +63,12 @@ export const addLabel = (todoItem, label) => {
     return {
         type: ADD_LABEL,
         payload: { todoItem, label }
+    }
+}
+
+export const setLabelList = (labelList) => {
+    return {
+        type: SET_LABEL_LIST,
+        payload: labelList
     }
 }
