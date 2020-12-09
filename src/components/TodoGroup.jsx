@@ -10,9 +10,11 @@ export default class TodoGroup extends Component {
         return (
             <div className='todo-group'>
                 {
-                    todoList.map(todoItem => 
+                    todoList.length? todoList.map(todoItem => 
                         <TodoItemContainer key={todoItem.id} todo={todoItem} />
                     )
+                    :
+                    <h4>{`such emptiness, see word drink water :)`}</h4>
                 }
             </div>
         )
