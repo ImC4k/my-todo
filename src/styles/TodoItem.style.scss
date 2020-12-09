@@ -7,20 +7,23 @@
     border-radius: 5px;
     padding: 0 3%;
     margin: 3% 0;
+    font-weight: 400;
+    transition-property: transform, font-weight;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+
+    &:hover {
+        transform: scale(1.03);
+        font-weight: 600;
+    }
 
     .todo-text {
         margin: 2% 0;
         width: 100%;
         text-align: left;
         background-color: transparent;
-        font-weight: 400;
-        transition-property: transform, font-weight;
-        transition-duration: 200ms;
-        transition-timing-function: ease-in-out;
         &:hover {
             cursor: pointer;
-            transform: scale(1.03);
-            font-weight: 600;
         }
     }
     .done {
