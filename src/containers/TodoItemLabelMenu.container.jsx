@@ -1,6 +1,6 @@
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import TodoItemLabelMenu from '../components/TodoItemLabelMenu';
-import {setLabelAdderVisibility, addLabel, removeLabel} from '../actions';
+import { addLabel, removeLabel } from '../actions';
 
 const mapStateToProps = state => ({
     targetTodoItemId: state.targetTodoItemId,
@@ -9,7 +9,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    setLabelAdderVisibility: (state)=> dispatch(setLabelAdderVisibility(state)),
     addLabel: (todoItemId, label) => dispatch(addLabel(todoItemId, label)),
     removeLabel: (todoItemId, label) => dispatch(removeLabel(todoItemId, label)),
 });
