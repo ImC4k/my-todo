@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Menu } from 'antd';
 
+import {PlusCircleOutlined} from '@ant-design/icons'
+
 export default class TodoItemLabelMenu extends Component {
     constructor(props) {
         super(props);
@@ -23,17 +25,20 @@ export default class TodoItemLabelMenu extends Component {
 
     handleAddNewLabel = () => {
         // todo popup to allow user input
+        this.props.setLabelAdderVisibility(true);
+        console.log('set open');
     }
 
     handleLabelClick = (label) => {
         // toggle adding/removing this label
+        console.log(`clicked ${JSON.stringify(label, null, 4)}`);
     }
 
     render() {
         const {labels} = this.state;
         return (
             <Menu>
-                <Menu.Item key="add" onClick={this.handleAddNewLabel}>new label</Menu.Item>
+                <Menu.Item key="add" onClick={this.handleAddNewLabel}>new label <PlusCircleOutlined /></Menu.Item>
                 {
                     labels.map(label =>
                         <Menu.Item key={label.id} onClick={()=>this.handleLabelClick(label)}>

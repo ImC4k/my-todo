@@ -2,7 +2,8 @@ import {
     CREATE_NEW_TODO, 
     DELETE_TODO,
     UPDATE_TODO_ITEM,
-    SET_TODO_LIST 
+    SET_TODO_LIST,
+    SET_LABEL_ADDER_VISIBILITY 
 } from './actionTypes';
 
 export const createNewTodo = (newTodo) => {
@@ -31,4 +32,11 @@ export const setTodoList = (todoList) => {
         type: SET_TODO_LIST,
         payload: todoList
     };
+}
+
+export const setLabelAdderVisibility = (state) => {
+    return {
+        type: SET_LABEL_ADDER_VISIBILITY,
+        payload: state
+    }
 }

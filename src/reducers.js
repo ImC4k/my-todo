@@ -3,7 +3,8 @@ import {
     CREATE_NEW_TODO,
     UPDATE_TODO_ITEM,
     DELETE_TODO,
-    SET_TODO_LIST
+    SET_TODO_LIST,
+    SET_LABEL_ADDER_VISIBILITY
 } from './actionTypes';
 
 const todoList = (state = [], action) => {
@@ -27,6 +28,14 @@ const todoList = (state = [], action) => {
     return state;
 };
 
+const labelAdderVisibility = (state = false, action) => {
+    if (action.type === SET_LABEL_ADDER_VISIBILITY) {
+        return action.payload
+    }
+    return state;
+}
+
 export default combineReducers({
-    todoList
+    todoList,
+    labelAdderVisibility
 });

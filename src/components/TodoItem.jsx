@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import React, { Component } from 'react';
 import { deleteTodo, updateTodo } from '../api/todoList.service';
 import '../styles/TodoItem.style.scss';
-import TodoItemLabelMenu from './TodoItemLabelMenu';
+import TodoItemLabelMenuContainer from '../containers/TodoItemLabelMenu.container';
 
 
 export default class TodoItem extends Component {
@@ -35,7 +35,7 @@ export default class TodoItem extends Component {
     render() {
         const { text, done } = this.props.todo;
         return (
-            <Dropdown overlay={<TodoItemLabelMenu />} trigger={['contextMenu']} >
+            <Dropdown overlay={<TodoItemLabelMenuContainer />} trigger={['contextMenu']} >
                 <div className='todo-item'>
                     <p onClick={this.toggleDone} className={classNames({ 'done': done }, 'todo-text')}>
                         {text}
