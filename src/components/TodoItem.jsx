@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import { deleteTodo, updateTodo } from '../api/todos.service';
+import { deleteTodo, updateTodo } from '../api/todoList.service';
 
 import '../styles/TodoItem.style.scss';
 

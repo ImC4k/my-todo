@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import TodoItemContainer from '../containers/TodoItem.container';
-import { getTodoList } from '../api/todos.service';
+import { getTodoList } from '../api/todoList.service';
 
 import '../styles/TodoGroup.style.scss';
 
