@@ -10,21 +10,22 @@ function App() {
       name: 'root page',
       path: '/',
       description: 'home',
-      element: (<div />)
+      element: <div />
     },
     {
       name: 'list page',
       path: '/todo',
       description: 'go to list page',
-      element: (<TodoList />)
+      element: <TodoList />
     },
     {
       name: 'done page',
       path: '/done',
       description: 'go to done page',
-      element: (<DoneGroupContainer />)
+      element: <DoneGroupContainer />
     },
   ];
+  
   return (
     <div className="App">
       <BrowserRouter>
@@ -40,23 +41,14 @@ function App() {
           }
         </ul>
         <Switch>
-          {/* {
+          {
             routes.map(route => 
-              <Route key={route.name} path={route.path} >
+              <Route key={route.name} path={route.path} exact >
                 {route.element}
               </Route>
             )
-          } */}
-          <Route path='/' exact>
-            <div />
-          </Route>
-          <Route path='/todo' >
-            <TodoList />
-          </Route>
-          <Route path='/done' >
-            <DoneGroupContainer />
-          </Route>
-          <Route path='*' >
+          }
+          <Route path='*'>
             <NotFound />
           </Route>
         </Switch>
