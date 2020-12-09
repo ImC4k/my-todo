@@ -1,9 +1,17 @@
 import React, { Component } from 'react'
 import TodoItemContainer from '../containers/TodoItem.container';
+import { getTodoList } from '../api/todos.service';
 
 import '../styles/TodoGroup.style.scss';
 
 export default class TodoGroup extends Component {
+    componentDidMount = () => {
+        getTodoList()
+        .then(({data}) => {
+            this.props.setTodoList(data);
+        });
+    }
+
     render() {
         const { todoList } = this.props;
         return (
