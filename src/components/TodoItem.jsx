@@ -43,8 +43,17 @@ export default class TodoItem extends Component {
                 <Dropdown overlay={<TodoItemLabelMenuContainer />} trigger={['contextMenu']}>
                     <div className='todo-item'>
                         <p onClick={this.toggleDone} className={classNames({ 'done': done }, 'todo-text')}>
-                            {text} labels: {labels.map(label=>label.text).join(', ')}
+                            {text}
                         </p>
+                        <div class='labels'>
+                            {
+                                labels.map(label => 
+                                    <p className='label' key={label.id} style={{backgroundColor: label.color, color: 'white'}}>
+                                        {label.text}
+                                    </p>
+                                )
+                            }
+                        </div>
                         <DeleteOutlined onClick={this.deleteItem} className='delete-item-btn'>x</DeleteOutlined>
                     </div>
                 </Dropdown>
