@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { createNewTodo } from '../api/todoList.service';
 
-import { Button } from 'antd';
+import { Button, Input } from 'antd';
 import '../styles/TodoGenerator.style.scss';
 
 export default class TodoGenerator extends Component {
@@ -17,12 +17,6 @@ export default class TodoGenerator extends Component {
         });
     }
 
-    handleKeyDown = (event) => {
-        if (event.key === 'Enter') {
-            this.handleAddNewTodo();
-        }
-    }
-
     handleAddNewTodo = () => {
         if (this.state.todoText === '') return;
 
@@ -34,13 +28,14 @@ export default class TodoGenerator extends Component {
             });
         });
     }
+
     render() {
         return (
             <div className='todo-generator'>
-                <input type="text" name="todo" value={this.state.todoText}
-                    placeholder='input a new todo here' onChange={this.handleTodoChange} onKeyDown={this.handleKeyDown}
+                <Input type="text" name="todo" value={this.state.todoText} size='large'
+                    placeholder='input a new todo here' onChange={this.handleTodoChange} onPressEnter={this.handleAddNewTodo}
                 />
-                <Button onClick={this.handleAddNewTodo} type="primary">add</Button>
+                <Button onClick={this.handleAddNewTodo} type='primary' shape='round' disabled={this.state.todoText === ''}>add</Button>
             </div>
         )
     }
