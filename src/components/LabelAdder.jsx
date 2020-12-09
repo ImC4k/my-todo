@@ -22,6 +22,7 @@ export default class LabelAdder extends Component {
     }
 
     handleOk = () => {
+        if (this.state.newLabel === '') return;
         const { newLabel, color } = this.state;
         const newLabelItem = {
             text: newLabel,
