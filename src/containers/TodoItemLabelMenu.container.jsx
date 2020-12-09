@@ -3,7 +3,8 @@ import TodoItemLabelMenu from '../components/TodoItemLabelMenu';
 import {setLabelAdderVisibility, addLabel} from '../actions';
 
 const mapStateToProps = state => ({
-    targetTodoItem: state.targetTodoItem
+    targetTodoItem: state.targetTodoItem,
+    labels: state.labels
 });
 
 const mapDispatchToProps = dispatch => ({

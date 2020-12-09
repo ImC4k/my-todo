@@ -65,5 +65,6 @@ const targetTodoItem = (state = {}, action) => {
 export default combineReducers({
     todoList,
     labelAdderVisibility,
+    labels,
     targetTodoItem
 });

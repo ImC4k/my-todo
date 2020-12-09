@@ -25,6 +25,7 @@ export default class LabelAdder extends Component {
         }
         this.props.createNewLabel(newLabel);
         this.props.addLabel(this.props.targetTodoItem, newLabel);
+        this.handleClose();
     }
     
     handleClose = () => {
