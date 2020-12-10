@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { Menu } from 'antd';
 import {Link} from 'react-router-dom';
+import routes from '../../routes';
 
 import './Navigation.style.scss';
 
 export default class Navigation extends Component {
     render() {
-        const {routes} = this.props;
         return (
             <Menu mode='horizontal' className='navigation-bar'>
                 {
