@@ -10,6 +10,7 @@ import {
     REMOVE_LABEL,
     SET_LABEL_LIST,
     DELETE_LABEL,
+    UPDATE_LABEL
 } from './actionTypes';
 
 export const createNewTodo = (newTodo) => {
@@ -87,4 +88,11 @@ export const deleteLabel = (label) => {
         type: DELETE_LABEL,
         payload: label
     };
+}
+
+export const updateLabel = (label) => {
+    return {
+        type: UPDATE_LABEL,
+        payload: label
+    }
 }

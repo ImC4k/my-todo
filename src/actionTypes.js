@@ -9,3 +9,4 @@ export const ADD_LABEL = 'ADD_LABEL';
 export const REMOVE_LABEL = 'REMOVE_LABEL';
 export const SET_LABEL_LIST = 'SET_LABEL_LIST';
 export const DELETE_LABEL = 'DELETE_LABEL';
+export const UPDATE_LABEL = 'UPDATE_LABEL';

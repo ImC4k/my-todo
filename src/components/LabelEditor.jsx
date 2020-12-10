@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import { Input, Modal } from 'antd';
 import { CirclePicker } from 'react-color'
-import { createNewLabel } from '../api/labels.service';
+import { updateLabel } from '../api/labels.service';
+import { getTodoList } from '../api/todoList.service';
 
 import '../styles/LabelAdder.style.scss';
 
-export default class LabelAdder extends Component {
+export default class LabelEditor extends Component {
     constructor(props) {
         super(props);
+        const { text, color } = this.props.label;
+
         this.state = {
-            newLabel: '',
-            color: '#FFFFFF',
+            newLabel: text,
+            color: color,
             submitButtonEnabled: true
         };
     }
@@ -24,7 +27,9 @@ export default class LabelAdder extends Component {
     handleOk = () => {
         if (this.state.newLabel === '') return;
         const { newLabel, color } = this.state;
+        const { id } = this.props.label;
         const newLabelItem = {
+            id: id,
             text: newLabel,
             color: color,
         }
@@ -32,42 +37,46 @@ export default class LabelAdder extends Component {
             submitButtonEnabled: false,
         });
 
-        createNewLabel(newLabelItem)
-        .then(({data}) => {
-            this.props.createNewLabel(data);
-            this.props.addLabel(this.props.targetTodoItemId, data);
-            this.setState({
-                submitButtonEnabled: true,
-            });
-            this.handleClose();
-        })
+        updateLabel(newLabelItem)
+            .then(({ data }) => {
+                this.props.updateLabel(data);
+                this.props.addLabel(this.props.targetTodoItemId, data);
+                this.handleClose();
+                this.setState({
+                    submitButtonEnabled: true,
+                });
+                return getTodoList();
+            })
+            .then(({ data }) => {
+                this.props.setTodoList(data);
+            })
     }
 
     handleClose = () => {
         this.setState({
             newLabel: '',
         })
-        this.props.setLabelAdderVisibility(false);
+        console.log('close');
+        this.props.onClose();
     }
 
     handleColorChange = (color, event) => {
         this.setState({
             color: color.hex
         });
-        console.log(`new color: ${color.hex}`);
     }
 
     render() {
-        const { labelAdderVisibility } = this.props;
+        const { visible } = this.props;
         return (
             <Modal
-                title="Add a new label"
-                visible={labelAdderVisibility}
+                title="Label editor"
+                visible={visible}
                 onCancel={this.handleClose}
                 onOk={this.handleOk}
-                okText='Add'
+                okText='Update'
             >
-                <Input value={this.state.newLabel} placeholder='add new label' onChange={this.handleInput} onPressEnter={this.handleOk} />
+                <Input value={this.state.newLabel} placeholder='rename label here' onChange={this.handleInput} onPressEnter={this.handleOk} />
                 <div className="color-picker">
                     <p>Color for this label:</p>
                     <CirclePicker onChangeComplete={this.handleColorChange} />

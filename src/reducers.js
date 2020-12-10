@@ -11,7 +11,7 @@ import {
     REMOVE_LABEL,
     SET_LABEL_LIST,
     DELETE_LABEL,
-    DELETE_LABEL_FROM_TODO_LIST
+    UPDATE_LABEL
 } from './actionTypes';
 
 const todoList = (state = [], action) => {
@@ -69,6 +69,14 @@ const labels = (state = [], action) => {
     }
     else if (action.type === DELETE_LABEL) {
         return state.filter(label => label.id !== action.payload.id);
+    }
+    else if (action.type === UPDATE_LABEL) {
+        return state.map(label => {
+            if (label.id === action.payload.id) {
+                return { ...action.payload };
+            }
+            return { ...label };
+        });
     }
     return state;
 }

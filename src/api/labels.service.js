@@ -12,3 +12,7 @@ export const createNewLabel = (label) => {
 export const deleteLabel = (id) => {
     return api.delete(`${path}/${id}`);
 }
+
+export const updateLabel = (label) => {
+    return api.put(`${path}/${label.id}`, label);
+}

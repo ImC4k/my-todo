@@ -4,12 +4,22 @@ import {notification} from 'antd';
 import { reverseContrast } from '../service/color.service';
 import {deleteLabel} from '../api/labels.service';
 import {getTodoList} from '../api/todoList.service';
+import LabelEditorContainer from '../containers/LabelEditor.container';
 
 import '../styles/LabelItem.style.scss';
 
 export default class LabelItem extends Component {
-    deleteItem = () => {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLabelEditorVisible: false
+        };
+    }
+    
+    deleteItem = (event) => {
         const {label} = this.props;
+        event.stopPropagation();
+
         deleteLabel(label.id)
         .then(_ => {
             this.props.deleteLabel(label);
@@ -24,15 +34,27 @@ export default class LabelItem extends Component {
             this.props.setTodoList(data);
         });
     }
+
+    setIsLabelEditorVisible = (isVisible) => {
+        this.setState({
+            isLabelEditorVisible: isVisible,
+        });
+    }
+
+
     render() {
         const { text, color } = this.props.label;
+        const {isLabelEditorVisible} = this.state;
         return (
-            <div className='label-item' style={{ backgroundColor: color, color: reverseContrast(color) }}>
-                <p className='label-text'>
-                    {text}
-                </p>
-                <DeleteOutlined onClick={this.deleteItem} className='delete-item-btn' style={{color: reverseContrast(color)}}>x</DeleteOutlined>
-            </div>
+            <>
+                <LabelEditorContainer visible={isLabelEditorVisible} onClose={()=>this.setIsLabelEditorVisible(false)} label={this.props.label}/>
+                <div className='label-item' style={{ backgroundColor: color, color: reverseContrast(color) }} onClick={()=>this.setIsLabelEditorVisible(true)}>
+                    <p className='label-text'>
+                        {text}
+                    </p>
+                    <DeleteOutlined onClick={this.deleteItem} className='delete-item-btn' style={{color: reverseContrast(color)}}>x</DeleteOutlined>
+                </div>
+            </>
         )
     }
 }
