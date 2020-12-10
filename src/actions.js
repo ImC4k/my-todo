@@ -3,7 +3,7 @@ import {
     DELETE_TODO,
     UPDATE_TODO_ITEM,
     SET_TODO_LIST,
-    SET_LABEL_ADDER_VISIBILITY,
+    SET_IS_LABEL_ADDER_VISIBLE,
     SET_TARGET_TODO_ITEM_ID,
     CREATE_LABEL,
     ADD_LABEL,
@@ -41,9 +41,9 @@ export const setTodoList = (todoList) => {
     };
 }
 
-export const setLabelAdderVisibility = (state) => {
+export const setIsLabelAdderVisible = (state) => {
     return {
-        type: SET_LABEL_ADDER_VISIBILITY,
+        type: SET_IS_LABEL_ADDER_VISIBLE,
         payload: state
     }
 }

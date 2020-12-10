@@ -8,7 +8,7 @@ import '../styles/LabelListManager.style.scss';
 
 export default class LabelListManager extends Component {
     handleAddNewLabel = () => {
-        this.props.setLabelAdderVisibility(true);
+        this.props.setIsLabelAdderVisible(true);
     }
 
     render() {
