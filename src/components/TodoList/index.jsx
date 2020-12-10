@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TodoGroupContainer from '../TodoGroup/TodoGroup.container';
-import TodoGeneratorContainer from '../../containers/TodoGenerator.container';
+import TodoGeneratorContainer from '../TodoGenerator/TodoGenerator.container';
 
 import './TodoList.style.scss';
 import LabelAdderContainer from '../LabelAdder/LabelAdder.container';

@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
-import TodoGenerator from '../components/TodoGenerator';
-import {createNewTodo} from '../actions';
+import TodoGenerator from '.';
+import {createNewTodo} from '../../actions';
 
 const mapDispatchToProps = dispatch => ({
     createNewTodo: (newTodo) => dispatch(createNewTodo(newTodo))

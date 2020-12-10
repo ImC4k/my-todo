@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import LabelListManager from '../components/LabelListManager';
-import { setIsLabelAdderVisible } from '../actions';
+import LabelListManager from '.';
+import { setIsLabelAdderVisible } from '../../actions';
 
 const mapStateToProps = state => ({
     labelList: state.labels

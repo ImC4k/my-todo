@@ -4,7 +4,7 @@ import NotFound from './components/NotFound';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Home from './components/Home';
-import LabelListManagerContainer from './containers/LabelListManager.container';
+import LabelListManagerContainer from './components/LabelListManager/LabelListManager.container';
 import React, {Component} from 'react';
 
 import { getTodoList } from './api/todoList.service';
