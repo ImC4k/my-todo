@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Menu } from 'antd';
+import { Menu, Tooltip } from 'antd';
 import { updateTodo } from '../api/todoList.service';
 
 import { CheckCircleOutlined } from '@ant-design/icons'
@@ -33,7 +33,15 @@ export default class TodoItemLabelMenu extends Component {
                 {
                     labels.map(label =>
                         <Menu.Item key={label.id} onClick={() => this.handleLabelClick(label)}>
-                            {label.text} {selectedLabelIds.includes(label.id) && <CheckCircleOutlined />}
+                            {
+                                label.text.length > 20?
+                                    <Tooltip title={label.text}>
+                                        {`${label.text.substring(0, 20)}...`}
+                                    </Tooltip>
+                                :
+                                    `${label.text}`
+                            } 
+                            {selectedLabelIds.includes(label.id) && <CheckCircleOutlined />}
                         </Menu.Item>
                     )
                 }

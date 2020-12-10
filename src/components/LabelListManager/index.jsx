@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import LabelItemContainer from './LabelItem/LabelItem.container';
+import LabelItemContainer from '../LabelItem/LabelItem.container';
 import { Button } from 'antd';
 import { PlusCircleOutlined } from '@ant-design/icons';
-import LabelAdderContainer from './LabelAdder/LabelAdder.container';
+import LabelAdderContainer from '../LabelAdder/LabelAdder.container';
 
-import '../styles/LabelListManager.style.scss';
+import './LabelListManager.style.scss';
 
 export default class LabelListManager extends Component {
     handleAddNewLabel = () => {
