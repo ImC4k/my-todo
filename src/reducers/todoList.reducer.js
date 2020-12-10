@@ -1,18 +1,11 @@
-import { combineReducers } from 'redux';
 import {
     CREATE_NEW_TODO,
     UPDATE_TODO_ITEM,
     DELETE_TODO,
     SET_TODO_LIST,
-    SET_LABEL_ADDER_VISIBILITY,
-    SET_TARGET_TODO_ITEM_ID,
-    CREATE_LABEL,
     ADD_LABEL,
-    REMOVE_LABEL,
-    SET_LABEL_LIST,
-    DELETE_LABEL,
-    UPDATE_LABEL
-} from './actionTypes';
+    REMOVE_LABEL
+} from '../actionTypes';
 
 const todoList = (state = [], action) => {
     if (action.type === CREATE_NEW_TODO) {
@@ -53,44 +46,4 @@ const todoList = (state = [], action) => {
     return state;
 };
 
-const labelAdderVisibility = (state = false, action) => {
-    if (action.type === SET_LABEL_ADDER_VISIBILITY) {
-        return action.payload
-    }
-    return state;
-}
-
-const labels = (state = [], action) => {
-    if (action.type === CREATE_LABEL) {
-        return [...state, action.payload];
-    }
-    else if (action.type === SET_LABEL_LIST) {
-        return action.payload;
-    }
-    else if (action.type === DELETE_LABEL) {
-        return state.filter(label => label.id !== action.payload.id);
-    }
-    else if (action.type === UPDATE_LABEL) {
-        return state.map(label => {
-            if (label.id === action.payload.id) {
-                return { ...action.payload };
-            }
-            return { ...label };
-        });
-    }
-    return state;
-}
-
-const targetTodoItemId = (state = '', action) => {
-    if (action.type === SET_TARGET_TODO_ITEM_ID) {
-        return action.payload;
-    }
-    return state;
-}
-
-export default combineReducers({
-    todoList,
-    labelAdderVisibility,
-    labels,
-    targetTodoItemId
-});
+export default todoList;
