@@ -73,7 +73,10 @@ export default class TodoItem extends Component {
                                 {
                                     labels.slice(0, 4).map(label =>
                                         <p className='label' key={label.id} style={{ backgroundColor: label.color, color: reverseContrast(label.color) }}>
-                                            {label.text}
+                                            {label.text.length > 20? `${label.text.substring(0, 20)}...`
+                                            :
+                                            label.text
+                                            }
                                         </p>
                                     )
                                 }
