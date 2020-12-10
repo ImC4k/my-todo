@@ -9,7 +9,9 @@
         align-items: center;
 
         .add-new-label-btn {
-            width: 30%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     }
 

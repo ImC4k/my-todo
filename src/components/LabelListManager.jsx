@@ -17,7 +17,10 @@ export default class LabelListManager extends Component {
             <div className='label-list-manager'>
                 <div className="header">
                     <h1>Manage Labels</h1>
-                    <Button onClick={this.handleAddNewLabel} className='add-new-label-btn' type='primary' shape='round'>Add New Label <PlusCircleOutlined /></Button>
+                    <Button onClick={this.handleAddNewLabel} className='add-new-label-btn' type='primary' shape='round'>
+                        New
+                        <PlusCircleOutlined />
+                    </Button>
                 </div>
                 <div className="labels">
                     {
