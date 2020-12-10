@@ -2,11 +2,11 @@ import { DeleteOutlined } from '@ant-design/icons';
 import { Dropdown, notification } from 'antd';
 import classNames from 'classnames';
 import React, { Component } from 'react';
-import { deleteTodo, updateTodo } from '../api/todoList.service';
-import '../styles/TodoItem.style.scss';
-import TodoItemLabelMenuContainer from '../containers/TodoItemLabelMenu.container';
-import { reverseContrast } from '../service/color.service';
+import { deleteTodo, updateTodo } from '../../api/todoList.service';
+import TodoItemLabelMenuContainer from '../../containers/TodoItemLabelMenu.container';
+import { reverseContrast } from '../../service/color.service';
 
+import './TodoItem.style.scss';
 
 export default class TodoItem extends Component {
     showDeletedItemNotification = () => {

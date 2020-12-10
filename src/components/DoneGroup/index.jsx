@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import TodoItemContainer from '../../containers/TodoItem.container';
+import TodoItemContainer from '../TodoItem/TodoItem.container';
 
 import '../TodoGroup/TodoGroup.style.scss';
 import '../TodoList/TodoList.style.scss';
