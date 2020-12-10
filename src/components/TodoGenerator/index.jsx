@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { createNewTodo } from '../api/todoList.service';
+import { createNewTodo } from '../../api/todoList.service';
 
 import { Button, Input } from 'antd';
-import '../styles/TodoGenerator.style.scss';
+import './TodoGenerator.style.scss';
 
 export default class TodoGenerator extends Component {
     constructor(props) {
