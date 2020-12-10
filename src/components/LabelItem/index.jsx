@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { DeleteOutlined } from '@ant-design/icons';
 import {notification} from 'antd';
-import { reverseContrast } from '../service/color.service';
-import {deleteLabel} from '../api/labels.service';
-import {getTodoList} from '../api/todoList.service';
-import LabelEditorContainer from './LabelEditor/LabelEditor.container';
+import { reverseContrast } from '../../service/color.service';
+import {deleteLabel} from '../../api/labels.service';
+import {getTodoList} from '../../api/todoList.service';
+import LabelEditorContainer from '../LabelEditor/LabelEditor.container';
 
-import '../styles/LabelItem.style.scss';
+import './LabelItem.style.scss';
 
 export default class LabelItem extends Component {
     constructor(props) {

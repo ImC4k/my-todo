@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
-import LabelItem from '../components/LabelItem';
-import {deleteLabel, setTodoList} from '../actions';
+import LabelItem from '.';
+import {deleteLabel, setTodoList} from '../../actions';
 
 const mapDispatchToProps = dispatch => ({
     deleteLabel: (label) => dispatch(deleteLabel(label)),

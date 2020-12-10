@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LabelItemContainer from '../containers/LabelItem.container';
+import LabelItemContainer from './LabelItem/LabelItem.container';
 import { Button } from 'antd';
 import { PlusCircleOutlined } from '@ant-design/icons';
 import LabelAdderContainer from './LabelAdder/LabelAdder.container';
