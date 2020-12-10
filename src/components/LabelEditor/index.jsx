@@ -67,7 +67,14 @@ export default class LabelEditor extends Component {
     }
 
     render() {
-        const { visible } = this.props;
+        const { visible, label } = this.props
+        if (this.state.newLabel === '') {
+            const { text, color } = label;
+            this.setState({
+                newLabel: text,
+                color: color
+            });
+        }
         return (
             <Modal
                 title="Label editor"
