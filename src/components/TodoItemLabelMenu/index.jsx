@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Menu, Tooltip } from 'antd';
 import { updateTodo } from '../../api/todoList.service';
 
-import { CheckCircleOutlined } from '@ant-design/icons'
+import { CheckCircleOutlined } from '@ant-design/icons';
+
+import './TodoItemLabelMenu.style.scss';
 
 export default class TodoItemLabelMenu extends Component {
 
@@ -29,10 +31,10 @@ export default class TodoItemLabelMenu extends Component {
         const { labels } = this.props;
         const selectedLabelIds = this.getTodoItemInRedux().labels.map(label => label.id);
         return (
-            <Menu>
+            <Menu className='todo-item-label-menu'>
                 {
                     labels.map(label =>
-                        <Menu.Item key={label.id} onClick={() => this.handleLabelClick(label)}>
+                        <Menu.Item key={label.id} onClick={() => this.handleLabelClick(label)} className='todo-item-label-menu-item'>
                             {
                                 label.text.length > 20?
                                     <Tooltip title={label.text}>
