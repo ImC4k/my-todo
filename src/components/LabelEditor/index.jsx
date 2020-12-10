@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Input, Modal } from 'antd';
 import { CirclePicker } from 'react-color'
-import { updateLabel } from '../api/labels.service';
-import { getTodoList } from '../api/todoList.service';
+import { updateLabel } from '../../api/labels.service';
+import { getTodoList } from '../../api/todoList.service';
 
-import './LabelAdder/LabelAdder.style.scss';
+import '../LabelAdder/LabelAdder.style.scss';
 
 export default class LabelEditor extends Component {
     constructor(props) {

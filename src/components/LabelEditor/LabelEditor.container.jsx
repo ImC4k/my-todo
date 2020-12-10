@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
-import {addLabel, updateLabel, setTodoList} from '../actions';
-import LabelEditor from '../components/LabelEditor';
+import {addLabel, updateLabel, setTodoList} from '../../actions';
+import LabelEditor from '.';
 
 const mapStateToProps = state => ({
     targetTodoItemId: state.targetTodoItemId

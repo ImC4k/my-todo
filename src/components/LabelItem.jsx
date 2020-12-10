@@ -4,7 +4,7 @@ import {notification} from 'antd';
 import { reverseContrast } from '../service/color.service';
 import {deleteLabel} from '../api/labels.service';
 import {getTodoList} from '../api/todoList.service';
-import LabelEditorContainer from '../containers/LabelEditor.container';
+import LabelEditorContainer from './LabelEditor/LabelEditor.container';
 
 import '../styles/LabelItem.style.scss';
 
