@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {updateTodoItem, deleteTodo, setTargetTodoItemId} from '../../actions';
-import TodoItem from './TodoItem';
+import TodoItem from '.';
 
 const mapDispatchToProps = dispatch => ({
     updateTodoItem: (todoItem) => dispatch(updateTodoItem(todoItem)),
