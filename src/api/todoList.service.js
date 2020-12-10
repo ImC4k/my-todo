@@ -14,5 +14,10 @@ export const deleteTodo = (id) => {
 }
 
 export const updateTodo = (updatedTodoItem) => {
-    return api.put(`${path}/${updatedTodoItem.id}`, updatedTodoItem);
+    const updateRequest = {
+        text: updatedTodoItem.text,
+        done: updatedTodoItem.done,
+        labelIds: updatedTodoItem.labels.map(labelItem => labelItem.id)
+    };
+    return api.put(`${path}/${updatedTodoItem.id}`, updateRequest);
 }
