@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Menu } from 'antd';
 import {Link} from 'react-router-dom';
 
-import '../styles/Navigation.style.scss';
+import './Navigation.style.scss';
 
 export default class Navigation extends Component {
     render() {
