@@ -35,7 +35,6 @@ export default class LabelAdder extends Component {
         createNewLabel(newLabelItem)
         .then(({data}) => {
             this.props.createNewLabel(data);
-            this.props.addLabel(this.props.targetTodoItemId, data);
             this.setState({
                 submitButtonEnabled: true,
             });

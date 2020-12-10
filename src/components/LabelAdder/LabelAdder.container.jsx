@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import LabelAdder from '.';
-import {setIsLabelAdderVisible, createLabel, addLabel} from '../../actions';
+import {setIsLabelAdderVisible, createLabel} from '../../actions';
 
 const mapStateToProps = state => ({
     labelAdderVisibility: state.labelAdderVisibility,
@@ -9,8 +9,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     setLabelAdderVisibility: (state) => dispatch(setIsLabelAdderVisible(state)),
-    createNewLabel: (label) => dispatch(createLabel(label)),
-    addLabel: (todoItem, label) => dispatch(addLabel(todoItem, label))
+    createNewLabel: (label) => dispatch(createLabel(label))
 });
 
 const LabelAdderContainer = connect(mapStateToProps, mapDispatchToProps)(LabelAdder);
