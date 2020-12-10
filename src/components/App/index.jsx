@@ -1,14 +1,14 @@
-import TodoList from './components/TodoList';
-import DoneGroupContainer from './components/DoneGroup/DoneGroup.container';
-import NotFound from './components/NotFound';
+import TodoList from '../TodoList';
+import DoneGroupContainer from '../DoneGroup/DoneGroup.container';
+import NotFound from '../NotFound';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Navigation from './components/Navigation';
-import Home from './components/Home';
-import LabelListManagerContainer from './components/LabelListManager/LabelListManager.container';
+import Navigation from '../Navigation';
+import Home from '../Home';
+import LabelListManagerContainer from '../LabelListManager/LabelListManager.container';
 import React, {Component} from 'react';
 
-import { getTodoList } from './api/todoList.service';
-import { getLabels } from './api/labels.service';
+import { getTodoList } from '../../api/todoList.service';
+import { getLabels } from '../../api/labels.service';
 class App extends Component {
   constructor(props) {
     super(props);

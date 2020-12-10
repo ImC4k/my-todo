@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css'; 
 import './index.css';
-import AppContainer from './containers/App.container';
+import AppContainer from './components/App/App.container';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';

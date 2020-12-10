@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
-import {setTodoList, setLabelList} from '../actions';
-import App from '../App';
+import {setTodoList, setLabelList} from '../../actions';
+import App from '.';
 
 const mapDispatchToProps = dispatch => ({
     setTodoList: (todoList) => dispatch(setTodoList(todoList)),
