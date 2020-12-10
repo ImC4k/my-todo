@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import TodoGroup from '../components/TodoGroup';
+import TodoGroup from '.';
 
 const mapStateToProps = state => ({
     todoList: state.todoList.filter(todoItem => !todoItem.done)

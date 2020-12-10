@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import TodoItemContainer from '../containers/TodoItem.container';
+import TodoItemContainer from '../../containers/TodoItem.container';
 
-import '../styles/TodoGroup.style.scss';
+import './TodoGroup.style.scss';
 
 export default class TodoGroup extends Component {
 

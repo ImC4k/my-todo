@@ -1,5 +1,5 @@
 import TodoList from './components/TodoList';
-import DoneGroupContainer from './containers/DoneGroup.container';
+import DoneGroupContainer from './components/DoneGroup/DoneGroup.container';
 import NotFound from './components/NotFound';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Navigation from './components/Navigation';

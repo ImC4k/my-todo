@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import TodoItemContainer from '../containers/TodoItem.container';
+import TodoItemContainer from '../../containers/TodoItem.container';
 
-import '../styles/TodoGroup.style.scss';
-import '../styles/TodoList.style.scss';
+import '../TodoGroup/TodoGroup.style.scss';
+import '../TodoList/TodoList.style.scss';
 
 export default class TodoGroup extends Component {
     render() {

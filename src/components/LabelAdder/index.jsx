@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Input, Modal } from 'antd';
 import { CirclePicker } from 'react-color'
-import { createNewLabel } from '../api/labels.service';
+import { createNewLabel } from '../../api/labels.service';
 
-import '../styles/LabelAdder.style.scss';
+import './LabelAdder.style.scss';
 
 export default class LabelAdder extends Component {
     constructor(props) {

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import TodoGroupContainer from '../containers/TodoGroup.container';
-import TodoGeneratorContainer from '../containers/TodoGenerator.container';
+import TodoGroupContainer from '../TodoGroup/TodoGroup.container';
+import TodoGeneratorContainer from '../../containers/TodoGenerator.container';
 
-import '../styles/TodoList.style.scss';
-import LabelAdderContainer from '../containers/LabelAdder.container';
+import './TodoList.style.scss';
+import LabelAdderContainer from '../LabelAdder/LabelAdder.container';
 class TodoList extends Component {
     render() {
         return (

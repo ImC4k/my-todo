@@ -4,7 +4,7 @@ import { CirclePicker } from 'react-color'
 import { updateLabel } from '../api/labels.service';
 import { getTodoList } from '../api/todoList.service';
 
-import '../styles/LabelAdder.style.scss';
+import './LabelAdder/LabelAdder.style.scss';
 
 export default class LabelEditor extends Component {
     constructor(props) {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import LabelItemContainer from '../containers/LabelItem.container';
 import { Button } from 'antd';
 import { PlusCircleOutlined } from '@ant-design/icons';
-import LabelAdderContainer from '../containers/LabelAdder.container';
+import LabelAdderContainer from './LabelAdder/LabelAdder.container';
 
 import '../styles/LabelListManager.style.scss';
 

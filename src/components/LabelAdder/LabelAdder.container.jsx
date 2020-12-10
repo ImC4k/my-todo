@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
-import LabelAdder from '../components/LabelAdder';
-import {setIsLabelAdderVisible, createLabel, addLabel} from '../actions';
+import LabelAdder from '.';
+import {setIsLabelAdderVisible, createLabel, addLabel} from '../../actions';
 
 const mapStateToProps = state => ({
     labelAdderVisibility: state.labelAdderVisibility,
