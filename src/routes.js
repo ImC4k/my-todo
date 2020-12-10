@@ -1,6 +1,6 @@
 import Home from './components/Home';
 import TodoList from './components/TodoList';
-import DoneGroupContainer from './components/DoneGroup/DoneGroup.container';
+import DoneList from './components/DoneList';
 import LabelListManagerContainer from './components/LabelListManager/LabelListManager.container';
 
 const routes = [
@@ -20,7 +20,7 @@ const routes = [
       name: 'done page',
       path: '/done',
       description: 'Done',
-      component: DoneGroupContainer
+      component: DoneList
     },
     {
       name: 'manage labels page',

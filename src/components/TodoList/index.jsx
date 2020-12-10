@@ -8,7 +8,7 @@ class TodoList extends Component {
     render() {
         return (
             <div>
-                <h1 className='header'>TodoList</h1>
+                <h1 className='header'>Todo List</h1>
                 <LabelAdderContainer />
                 <div className='todo-items-container'>
                     <TodoGroupContainer />
