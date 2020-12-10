@@ -3,7 +3,7 @@ import { Dropdown, notification } from 'antd';
 import classNames from 'classnames';
 import React, { Component } from 'react';
 import { deleteTodo, updateTodo } from '../../api/todoList.service';
-import TodoItemLabelMenuContainer from '../../containers/TodoItemLabelMenu.container';
+import TodoItemLabelMenuContainer from '../TodoItemLabelMenu/TodoItemLabelMenu.container';
 import { reverseContrast } from '../../service/color.service';
 
 import './TodoItem.style.scss';

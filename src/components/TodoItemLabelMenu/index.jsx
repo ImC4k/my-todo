@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Menu, Tooltip } from 'antd';
-import { updateTodo } from '../api/todoList.service';
+import { updateTodo } from '../../api/todoList.service';
 
 import { CheckCircleOutlined } from '@ant-design/icons'
 

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import TodoItemLabelMenu from '../components/TodoItemLabelMenu';
-import { addLabel, removeLabel } from '../actions';
+import TodoItemLabelMenu from '.';
+import { addLabel, removeLabel } from '../../actions';
 
 const mapStateToProps = state => ({
     targetTodoItemId: state.targetTodoItemId,
