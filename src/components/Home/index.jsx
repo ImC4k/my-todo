@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Image, Carousel, Button} from 'antd';
 
-import '../styles/Home.style.scss';
+import './Home.style.scss';
 
 export default class Home extends Component {
     constructor(props) {
