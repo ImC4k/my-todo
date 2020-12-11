@@ -18,6 +18,18 @@ export default class LabelEditor extends Component {
         };
     }
 
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if (prevState.newLabel !== nextProps.label.text || prevState.color !== nextProps.label.color) {
+            return {
+                newLabel: nextProps.label.text,
+                color: nextProps.label.color
+            };
+        }
+        return null;
+    }
+    
+    
+
     handleInput = (event) => {
         this.setState({
             newLabel: event.target.value
@@ -67,14 +79,7 @@ export default class LabelEditor extends Component {
     }
 
     render() {
-        const { visible, label } = this.props
-        if (this.state.newLabel === '') {
-            const { text, color } = label;
-            this.setState({
-                newLabel: text,
-                color: color
-            });
-        }
+        const { visible} = this.props;
         return (
             <Modal
                 title="Label editor"
