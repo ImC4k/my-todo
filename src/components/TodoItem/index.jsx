@@ -66,7 +66,6 @@ export default class TodoItem extends Component {
     }
 
     setTargetTodoItem = () => {
-        console.log('setting target');
         this.props.setTargetTodoItemId(this.props.todo.id);
     }
 
