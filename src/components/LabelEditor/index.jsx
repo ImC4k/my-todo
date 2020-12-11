@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Input, Modal } from 'antd';
+import { Input, Modal, notification } from 'antd';
 import { CirclePicker } from 'react-color'
 import { updateLabel } from '../../api/labels.service';
 import { getTodoList } from '../../api/todoList.service';
@@ -16,6 +16,13 @@ export default class LabelEditor extends Component {
             color: color,
             submitButtonEnabled: true
         };
+    }
+
+    showErrorNotification = (message) => {
+        notification.error({
+            message: 'Failed to create new label',
+            description: message
+        });
     }
 
     handleInput = (event) => {
@@ -50,6 +57,9 @@ export default class LabelEditor extends Component {
             .then(({ data }) => {
                 this.props.setTodoList(data);
             })
+            .catch(({response}) => {
+                this.showErrorNotification(response.data.message);
+            });
     }
 
     handleClose = () => {

@@ -18,11 +18,21 @@ export default class TodoItem extends Component {
         });
     }
 
+    showErrorNotification = (message) => {
+        notification.error({
+            message: 'Failed to delete todo item',
+            description: message
+        });
+    }
+
     deleteItem = (event) => {
         deleteTodo(this.props.todo.id)
             .then(_ => {
                 this.showDeletedItemNotification();
                 this.props.deleteTodo(this.props.todo.id);
+            })
+            .catch(({response}) => {
+                this.showErrorNotification(response.data.message);
             });
         event.stopPropagation();
     }
@@ -49,6 +59,7 @@ export default class TodoItem extends Component {
         updateTodo(updatedTodoItem)
             .catch(error => {
                 console.error(error);
+                this.showErrorNotification(error.response.data.message);
                 // undo update
                 this.props.updateTodoItem(currentTodo);
             })

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Input, Modal } from 'antd';
+import { Input, Modal, notification } from 'antd';
 import { CirclePicker } from 'react-color'
 import { createNewLabel } from '../../api/labels.service';
 
@@ -40,6 +40,12 @@ export default class LabelAdder extends Component {
             });
             this.handleClose();
         })
+        .catch(({response}) => {
+            notification.error({
+                message: 'Failed to create new label',
+                description: response.data.message
+            });
+        });
     }
 
     handleClose = () => {
