@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { createNewTodo } from '../../api/todoList.service';
+import { showErrorNotification } from '../../service/notification.service';
 
 import { Button, Input } from 'antd';
 import './TodoGenerator.style.scss';
@@ -11,6 +12,7 @@ export default class TodoGenerator extends Component {
             todoText: '',
         }
     }
+
     handleTodoChange = (event) => {
         this.setState({
             todoText: event.target.value,
@@ -26,7 +28,15 @@ export default class TodoGenerator extends Component {
             this.setState({
                 todoText: ''
             });
-        });
+        })
+        .catch(({response}) => {
+            if (response) {
+                showErrorNotification(response.data.message);
+            }
+            else {
+                showErrorNotification('');
+            }
+        })
     }
 
     render() {

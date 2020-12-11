@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Menu, Tooltip, notification } from 'antd';
+import { Menu, Tooltip } from 'antd';
 import { updateTodo } from '../../api/todoList.service';
+import { showErrorNotification } from '../../service/notification.service';
 
 import { CheckCircleOutlined } from '@ant-design/icons';
 
@@ -13,13 +14,6 @@ export default class TodoItemLabelMenu extends Component {
         return todoList.filter(todoItem => todoItem.id === targetId)[0];
     }
 
-    showErrorNotification = (message) => {
-        notification.error({
-            message: 'Failed to update todo item',
-            description: message
-        });
-    }
-
     handleLabelClick = (selectedLabel) => {
         const targetTodoItem = this.getTodoItemInRedux();
         if (targetTodoItem.labels.map(labelInTodoItem => labelInTodoItem.id).includes(selectedLabel.id)) {
@@ -27,7 +21,12 @@ export default class TodoItemLabelMenu extends Component {
             const updatedLabelList = targetTodoItem.labels.filter(label => label.id !== selectedLabel.id);
             updateTodo({ ...targetTodoItem, labels: updatedLabelList })
             .catch(({response}) => {
-                this.showErrorNotification(response.data.message);
+                if (response) {
+                    showErrorNotification(response.data.message);
+                }
+                else {
+                    showErrorNotification('');
+                }
             });
         }
         else {
@@ -35,7 +34,12 @@ export default class TodoItemLabelMenu extends Component {
             const updatedLabelList = [...targetTodoItem.labels, selectedLabel];
             updateTodo({ ...targetTodoItem, labels: updatedLabelList })
             .catch(({response}) => {
-                this.showErrorNotification(response.data.message);
+                if (response) {
+                    showErrorNotification(response.data.message);
+                }
+                else {
+                    showErrorNotification('');
+                }
             });
         }
     }

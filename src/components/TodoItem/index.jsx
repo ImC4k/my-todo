@@ -5,23 +5,17 @@ import React, { Component } from 'react';
 import { deleteTodo, updateTodo } from '../../api/todoList.service';
 import TodoItemLabelMenuContainer from '../TodoItemLabelMenu/TodoItemLabelMenu.container';
 import { reverseContrast } from '../../service/color.service';
+import { showErrorNotification } from '../../service/notification.service';
 
 import './TodoItem.style.scss';
 
 export default class TodoItem extends Component {
     showDeletedItemNotification = () => {
         const { text } = this.props.todo;
-        notification.open({
+        notification.success({
             message: 'Todo item is deleted',
             description: `Todo item: ${text} has been deleted`,
             duration: 3
-        });
-    }
-
-    showErrorNotification = (message) => {
-        notification.error({
-            message: 'Failed to delete todo item',
-            description: message
         });
     }
 
@@ -32,14 +26,19 @@ export default class TodoItem extends Component {
                 this.props.deleteTodo(this.props.todo.id);
             })
             .catch(({response}) => {
-                this.showErrorNotification(response.data.message);
+                if (response) {
+                    showErrorNotification(response.data.message);
+                }
+                else {
+                    showErrorNotification('');
+                }
             });
         event.stopPropagation();
     }
 
     showUpdateDoneStatusNotification = () => {
         const { text, done } = this.props.todo;
-        notification.open({
+        notification.success({
             message: 'Todo item status updated',
             description: done ? `${text} is marked as not done` : `${text} is marked as done`,
             duration: 2
@@ -59,7 +58,9 @@ export default class TodoItem extends Component {
         updateTodo(updatedTodoItem)
             .catch(error => {
                 console.error(error);
-                this.showErrorNotification(error.response.data.message);
+                if (error.response) {
+                    showErrorNotification(error.response.data.message);
+                }
                 // undo update
                 this.props.updateTodoItem(currentTodo);
             })
